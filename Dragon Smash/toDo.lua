@@ -1,2 +1,4 @@
+add enemy strikes first
 add spells
-add enemies
+add graphics
+add more enemies
