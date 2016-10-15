@@ -1,8 +1,8 @@
 love.window.setTitle("Dragon Smash")
-love.window.setMode(720, 720)
+love.window.setMode(544, 544)
 love.window.setPosition(440, 40)
+defaultFont = love.graphics.newFont(18)
 
-love.graphics.setNewFont(14)
 TILE_SIZE = 64
 SCREEN_SIZE = 9
 
@@ -46,16 +46,6 @@ steps = 0
 restoreMagics = 0
 encounter = 0
 
-battleFrame = love.graphics.newImage("battleFrame.png")
-menu = {"Attack", "Magic", "Run"}
-command = 0
-cursorBase = 150
-cursorHead = 160
-strike = false
-heal = false
-run = false
-hit = 0
-
 tile = {}
 for i = 0, 5 do
    tile[i] = love.graphics.newImage("tile"..i..".png")
@@ -71,55 +61,93 @@ map = {
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1}, 
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 1, 1, 1, 1},
-   { 1, 1, 1, 1, 2, 4, 4, 4, 4, 5, 4, 4, 4, 4, 3, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1}, 
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 1, 1, 1, 1},
+   { 1, 1, 1, 1, 0, 4, 4, 4, 4, 5, 4, 4, 4, 4, 0, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
    { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
+function drawMap()
+   for y=1, SCREEN_SIZE do
+      for x=1, SCREEN_SIZE do                                                         
+         love.graphics.draw(tile[map[y+mapY][x+mapX]], (x*TILE_SIZE), (y*TILE_SIZE))
+      end
+   end
+end
+function atTile()
+   onTile = map[mapY+5][mapX+5]
+end
+
+function resetSelector()
+   command = 0
+   cursorBase = 150
+   cursorHead = 160
+   strike = false
+   heal = false
+end
+
+battleFrame = love.graphics.newImage("battleFrame.png")
+menu = {"Attack", "Magic", "Run"}
+command = 0
+cursorBase = 150
+cursorHead = 160
+strike = false
+heal = false
+run = false
+hit = 0
+
 battle = {
    {  1, 1, 1, 1, 1, 1, 1, 1, 1, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
-   {  2, 0, 0, 0, 0, 0, 0, 0, 3, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
+   {  1, 0, 0, 0, 0, 0, 0, 0, 1, },
    {  1, 1, 1, 1, 1, 1, 1, 1, 1, },
 }
+
+function drawBattle()
+   for y=1, SCREEN_SIZE do
+      for x=1, SCREEN_SIZE do
+         love.graphics.draw(tile[battle[y][x]], (x*TILE_SIZE), (y*TILE_SIZE))
+      end
+   end
+   love.graphics.draw(battleFrame, 4*TILE_SIZE, 2.5*TILE_SIZE)
+end
 
 -------AT-LEVEL------{ 2    3    4    5    6     7     8     9    10    11    12    13 }
 experienceRequired = { 5,  10,  20,  40,  70,  110,  160,  220,  290,  370,  460,  560 }
@@ -149,65 +177,6 @@ function levelUp()
       
       hero.level = hero.level + 1
    end
-end
-
-function resetEnemies()
-   steps = 0
-   restoreMagics = 0
-   strike = false
-   heal = false
-   run = false
-
-   encounter = love.math.random(4,24)
-
-   slime.health = love.math.random(6,8)
-   slime.attacks = love.math.random(2,4)
-   slime.level = love.math.random(2,4)
-   slime.gold = love.math.random(2,4)
-
-   redSlime.health = love.math.random(8,10)
-   redSlime.attacks = love.math.random(4,6)
-   redSlime.level = love.math.random(4,6)
-   redSlime.gold = love.math.random(4,6)
-
-   dracky.health = love.math.random(10,12)
-   dracky.attacks = love.math.random(6,8)
-   dracky.level = love.math.random(6,8)
-   dracky.gold = love.math.random(6,8)
-
-   greenDragon.health = love.math.random(60,80)
-   greenDragon.attacks = love.math.random(50,60)
-   greenDragon.level = love.math.random(50,60)
-   greenDragon.gold = love.math.random(50,60)
-end
-
-function drawMap()
-   for y=1, SCREEN_SIZE do
-      for x=1, SCREEN_SIZE do                                                         
-         love.graphics.draw(tile[map[y+mapY][x+mapX]], (x*TILE_SIZE), (y*TILE_SIZE))
-      end
-   end
-end
-
-function drawBattle()
-   for y=1, SCREEN_SIZE do
-      for x=1, SCREEN_SIZE do
-         love.graphics.draw(tile[battle[y][x]], (x*TILE_SIZE), (y*TILE_SIZE))
-      end
-   end
-   love.graphics.draw(battleFrame, 4*TILE_SIZE, 2.5*TILE_SIZE)
-end
-
-function atTile()
-   onTile = map[mapY+5][mapX+5]
-end
-
-function resetSelector()
-   command = 0
-   cursorBase = 150
-   cursorHead = 160
-   strike = false
-   heal = false
 end
 
 function worldEvents()
@@ -310,6 +279,8 @@ function battleEvents()
 end
 
 function love.draw()
+   love.graphics.setFont(defaultFont)
+   love.graphics.scale(0.75)
    if mode == 0 then
       drawMap()
       if step == 0 then
@@ -325,15 +296,15 @@ function love.draw()
          love.graphics.print(menu[i], 168*i, 670)
       end
       love.graphics.polygon("fill", cursorBase, 670, cursorHead, 680, cursorBase, 690)
-      love.graphics.print("OPHP : "..enemies[enemy].health, 600, 30)
+      love.graphics.print("OPHP : "..enemies[enemy].health, 560, 30)
    end
-   love.graphics.print("LEVEL : "..hero.level, 80, 10)
-   love.graphics.print("HEALTH : "..hero.health.."/"..hero.healthMax, 240, 10)
+   love.graphics.print("LEVEL : "..hero.level, 64, 10)
+   love.graphics.print("HEALTH : "..hero.health.."/"..hero.healthMax, 200, 10)
    love.graphics.print("ATTACKS : "..hero.attacks, 400, 10)
    love.graphics.print("DEFENSE : "..hero.defense, 400, 30)
-   love.graphics.print("EXP.   : "..hero.experience, 80, 30)
-   love.graphics.print("MAGICS : "..hero.magics.."/"..hero.magicMax, 240, 30)
-   love.graphics.print("GOLD : "..hero.gold, 600, 10)
+   love.graphics.print("EXP.   : "..hero.experience, 64, 30)
+   love.graphics.print("MAGICS : "..hero.magics.."/"..hero.magicMax, 200, 30)
+   love.graphics.print("GOLD : "..hero.gold, 560, 10)
 end
 
 function love.keypressed(key)
@@ -398,6 +369,36 @@ function love.keypressed(key)
          end   
       end
    end
+end
+
+function resetEnemies()
+   steps = 0
+   restoreMagics = 0
+   strike = false
+   heal = false
+   run = false
+
+   encounter = love.math.random(4,24)
+
+   slime.health = love.math.random(6,8)
+   slime.attacks = love.math.random(2,4)
+   slime.level = love.math.random(2,4)
+   slime.gold = love.math.random(2,4)
+
+   redSlime.health = love.math.random(8,10)
+   redSlime.attacks = love.math.random(4,6)
+   redSlime.level = love.math.random(4,6)
+   redSlime.gold = love.math.random(4,6)
+
+   dracky.health = love.math.random(10,12)
+   dracky.attacks = love.math.random(6,8)
+   dracky.level = love.math.random(6,8)
+   dracky.gold = love.math.random(6,8)
+
+   greenDragon.health = love.math.random(60,80)
+   greenDragon.attacks = love.math.random(50,60)
+   greenDragon.level = love.math.random(50,60)
+   greenDragon.gold = love.math.random(50,60)
 end
 
 function love.load()
