@@ -105,10 +105,6 @@ enemies[3] = dracky
 enemies[4] = greenDragon
 enemy = 0
 
-mode = 0
-steps = 0
-encounter = 0
-
 tile = {}
 for i = 0, 4 do
    tile[i] = love.graphics.newImage("tile"..i..".png")
@@ -118,7 +114,6 @@ mapX = 5
 mapY = 0
 mapW = 19
 mapH = 40
-
 battleFrame = love.graphics.newImage("battleFrame.png")
 battleMenu = {"Attack", "Magic", "Run"}
 command = 0
@@ -126,6 +121,9 @@ worldMenu = {"Heal", "Talk", "End"}
 selection = 0
 cursorBase = 75
 cursorHead = 80
+drawMode = 0
+steps = 0
+encounter = 0
 
 function love.load()
    hero.imageSwitch = 0
@@ -148,6 +146,39 @@ function resetSelector()
    selection = 0
    cursorBase = 75
    cursorHead = 80
+end
+
+function cursorLeft()
+   if drawMode == 1 then
+      if command > 0 then
+         cursorBase = cursorBase - 84
+         cursorHead = cursorHead - 84
+         command = command - 1
+      end
+   elseif drawMode == 2 then
+      if selection > 0 then
+         cursorBase = cursorBase - 84
+         cursorHead = cursorHead - 84
+         selection = selection - 1
+      end
+   end
+end
+
+function cursorRight()
+   if drawMode == 1 then
+      if command < 2 then
+         cursorBase = cursorBase + 84
+         cursorHead = cursorHead + 84
+         command = command + 1
+      end
+   elseif drawMode == 2 then
+      if selection < 2 then
+         cursorBase = cursorBase + 84
+         cursorHead = cursorHead + 84
+         selection = selection + 1
+      end
+   end
+   
 end
 
 function talk()
@@ -206,6 +237,28 @@ function levelUp()
    end
 end
 
+function heroAttack()
+   enemies[enemy].health = enemies[enemy].health - hero.attacks
+   print("\nHero attacks!")
+   print("The "..enemies[enemy].name.."'s Hit Points")
+   print("have been reduced by "..hero.attacks..".")
+   if enemies[enemy].health > 0 then
+      enemyAttack()
+   else
+      hero.experience = hero.experience + enemies[enemy].level
+      hero.gold = hero.gold + enemies[enemy].gold
+      print("\nThou hast done well in")
+      print("defeating the "..enemies[enemy].name..".")
+      print("\nThy Experience")
+      print("increases by "..enemies[enemy].level..".")
+      print("\nThy GOLD")
+      print("increases by "..enemies[enemy].gold..".")
+      levelUp()
+      resetEnemies()
+      drawMode = 0
+   end
+end
+
 function enemyAttack()
    damage = enemies[enemy].attacks - hero.defense
    if damage <= 0 then
@@ -214,6 +267,12 @@ function enemyAttack()
    hero.health = hero.health - damage
    print("\nThe "..enemies[enemy].name.." attacks!")
    print("Thy Hit decreased by "..damage..".")
+   if hero.health <= 0 then
+      print("\nThou art dead.")
+      love.event.quit()
+   else
+      print("\nCommand?")
+   end
 end
 
 function castHeal()
@@ -227,7 +286,7 @@ function castHeal()
          hero.magics = hero.magics - 4
          hero.health = hero.health + life
          print("\nHero chanted the spell")
-         print("of HEAL.")             
+         print("of HEAL.")
       else 
          print("\nThy hits cannot be raised.")
       end
@@ -238,38 +297,17 @@ end
 
 function battleEvents()
    if command == 0 then
-      enemies[enemy].health = enemies[enemy].health - hero.attacks
-      print("\nHero attacks!")
-      print("The "..enemies[enemy].name.."'s Hit Points")
-      print("have been reduced by "..hero.attacks..".")
-      if enemies[enemy].health > 0 then
-         enemyAttack()
-      else
-         hero.experience = hero.experience + enemies[enemy].level
-         hero.gold = hero.gold + enemies[enemy].gold
-         print("\nThou hast done well in")
-         print("defeating the "..enemies[enemy].name..".")
-         print("\nThy Experience")
-         print("increases by "..enemies[enemy].level..".")
-         print("\nThy GOLD")
-         print("increases by "..enemies[enemy].gold..".")
-         levelUp()
-         resetEnemies()
-         mode = 0
-      end
+      heroAttack()
    elseif command == 1 then
+      x = hero.health      
       castHeal()
-      enemyAttack() 
+      if hero.health > x then
+         enemyAttack()
+      end
    elseif command == 2 then
       print("\nHero started to run away.")
       resetEnemies()
-      mode = 0
-   end
-   if hero.health <= 0 then
-      print("\nThou art dead.")
-      love.event.quit()
-   else
-      print("\nCommand?")
+      drawMode = 0
    end
    resetSelector()
 end
@@ -286,7 +324,7 @@ function worldEvents()
       resetSelector()
       print("\nA "..enemies[enemy].name.." draws near!")
       print("Command?")
-      mode = 1
+      drawMode = 1
    end
 end
 
@@ -297,11 +335,11 @@ function menuEvents()
       talk()
    end
    resetSelector()
-   mode = 0
+   drawMode = 0
 end
 
 function love.keypressed(key)
-   if mode == 0 then
+   if drawMode == 0 then
       if key == ('w') then
          if mapY > 0 then
             mapY = mapY - 1
@@ -347,38 +385,22 @@ function love.keypressed(key)
             end
          end
       elseif key == ('return') then
-         mode = 2
+         drawMode = 2
          return
       end
-   elseif mode == 1 then
+   elseif drawMode == 1 then
       if key == ('a') then
-         if command > 0 then
-            cursorBase = cursorBase - 84
-            cursorHead = cursorHead - 84
-            command = command - 1
-         end
+         cursorLeft()
       elseif key == ('d') then
-         if command < 2 then
-            cursorHead = cursorHead + 84
-            cursorBase = cursorBase + 84
-            command = command + 1
-         end
+         cursorRight()
       elseif key == ('return') then
          battleEvents()  
       end
-   elseif mode == 2 then
+   elseif drawMode == 2 then
       if key == ('a') then
-         if selection > 0 then
-            cursorBase = cursorBase - 84
-            cursorHead = cursorHead - 84
-            selection = selection - 1
-         end
+         cursorLeft()
       elseif key == ('d') then
-         if selection < 2 then
-            cursorHead = cursorHead + 84
-            cursorBase = cursorBase + 84
-            selection = selection + 1
-         end
+         cursorRight()
       elseif key == ('return') then
          menuEvents()
       end
@@ -425,19 +447,7 @@ function drawHero()
    end
 end
 
-function love.draw()
-   love.graphics.setFont(defaultFont)
-   love.graphics.scale(2)
-   if mode == 0 then
-      drawMap()
-      drawHero()
-   elseif mode == 1 then
-      drawBattle()
-   elseif mode == 2 then
-      drawMap()
-      drawMenu()
-      drawHero()
-   end
+function drawStatus()
    love.graphics.rectangle("line",TILE_SIZE,3,9*TILE_SIZE, 28)
    love.graphics.print("LVL: "..hero.level,      40,  5)
    love.graphics.print("EXP: "..hero.experience, 40, 17)
@@ -448,8 +458,24 @@ function love.draw()
    love.graphics.print("GOLD: "..hero.gold, 255, 17)
 end
 
+function love.draw()
+   love.graphics.setFont(defaultFont)
+   love.graphics.scale(2)
+   if drawMode == 0 then
+      drawMap()
+      drawHero()
+   elseif drawMode == 1 then
+      drawBattle()
+   elseif drawMode == 2 then
+      drawMap()
+      drawMenu()
+      drawHero()
+   end
+   drawStatus()
+end
+
 function love.update(dt)
-   if mode == 0 then
+   if drawMode == 0 then
       hero.imageTimer = hero.imageTimer + dt
       if hero.imageTimer > 0.4 then
          if hero.imageSwitch == 0 then
