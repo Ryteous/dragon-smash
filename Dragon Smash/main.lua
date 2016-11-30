@@ -44,7 +44,7 @@ map = {
    { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
    { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
    { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-}  --1  2  3  4  5  6  7  8  9  10 11 1213 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
+}
 
 -------AT-LEVEL------{ 2    3    4    5    6     7     8     9    10    11    12    13    14 }
 experienceRequired = { 5,  10,  20,  40,  70,  110,  160,  220,  290,  370,  460,  560,  600 }
@@ -55,9 +55,8 @@ magicGained        = { 1,   1,   1,   2,   2,    2,    3,    3,    3,    4,    4
 -------AT-LEVEL------{ 2    3    4    5    6     7     8     9    10    11    12    13    14 }
 
 love.window.setTitle("Dragon Smash")
-love.window.setMode(1020, 1020)
-love.window.setPosition(440, 40)
-defaultFont = love.graphics.newFont(10)
+love.window.setMode(800, 800)
+love.window.setPosition(80, 0)
 
 TILE_SIZE = 34
 SCREEN_SIZE = 15
@@ -124,7 +123,10 @@ drawMode = 0
 steps = 0
 encounter = 0
 buf = 0
-keyMute = true
+bef = 0
+relay = 0
+theme = love.audio.newSource("overworldTheme.wav")
+theme:setLooping(true)
 
 function love.load()
    hero.healthMax = love.math.random(10,12)
@@ -134,6 +136,7 @@ function love.load()
    hero.attacks = love.math.random(5,7)
    hero.defense = love.math.random(1,2)
    resetEnemies()
+   theme:play()
 end
 
 function atTile()
@@ -182,13 +185,9 @@ end
 function talk()
    if mapX == 13 and mapY == 0 and (hero.image == n1 or hero.image == n2) then
       hero.magics = hero.magicMax
-      print("\nThy")
+      print("\nThy magics")
       love.timer.sleep(0.12)
-      print("magics")
-      love.timer.sleep(0.12)
-      print("are")
-      love.timer.sleep(0.12)
-      print("restored!")
+      print("are restored!")
    else
       print("\nNobody")
       love.timer.sleep(0.12)
@@ -198,23 +197,19 @@ end
 
 function resetEnemies()
    steps = 0
-   encounter = love.math.random(4,24)
-
+   encounter = love.math.random(12,32)
    slime.health = love.math.random(6,8)
    slime.attacks = love.math.random(2,4)
    slime.level = love.math.random(2,4)
    slime.gold = love.math.random(2,4)
-
    redSlime.health = love.math.random(8,10)
    redSlime.attacks = love.math.random(4,6)
    redSlime.level = love.math.random(4,6)
    redSlime.gold = love.math.random(4,6)
-
    dracky.health = love.math.random(10,12)
    dracky.attacks = love.math.random(6,8)
    dracky.level = love.math.random(6,8)
    dracky.gold = love.math.random(6,8)
-
    greenDragon.health = love.math.random(60,80)
    greenDragon.attacks = love.math.random(50,60)
    greenDragon.level = love.math.random(50,60)
@@ -227,57 +222,35 @@ function levelUp()
       hero.defense = hero.defense + defenseGained[hero.level]
       hero.healthMax = hero.healthMax + healthGained[hero.level]
       hero.magicMax = hero.magicMax + magicGained[hero.level]
-
-      print("\nThy")
-      love.timer.sleep(0.12)
-      print("level")
+      print("\nThy level")
       love.timer.sleep(0.12)
       print("increases")
       love.timer.sleep(0.12)
-      print("to")
-      love.timer.sleep(0.12)
-      print((hero.level + 1).."!")
+      print("to "..(hero.level + 1).."!")
       love.timer.sleep(0.8)
-
-      print("\nThy")
-      love.timer.sleep(0.12)
-      print("Attack")
+      print("\nThy Attack")
       love.timer.sleep(0.12)
       print("increases")
       love.timer.sleep(0.12)
       print("by "..attacksGained[hero.level].."!")
       love.timer.sleep(0.4)
-
-      print("\nThy")
-      love.timer.sleep(0.12)
-      print("Defense")
+      print("\nThy Defense")
       love.timer.sleep(0.12)
       print("increases")
       love.timer.sleep(0.12)
       print("by "..defenseGained[hero.level].."!")
       love.timer.sleep(0.4)
-
-      print("\nThy")
+      print("\nThy maximum")
       love.timer.sleep(0.12)
-      print("maximum")
-      love.timer.sleep(0.12)
-      print("Hits")
-      love.timer.sleep(0.12)
-      print("increases")
+      print("Hits increases")
       love.timer.sleep(0.12)
       print("by "..healthGained[hero.level].."!")
       love.timer.sleep(0.4)
-
-      print("\nThy")
+      print("\nThy maximum")
       love.timer.sleep(0.12)
-      print("maximum")
-      love.timer.sleep(0.12)
-      print("Magics")
-      love.timer.sleep(0.12)
-      print("increases")
+      print("Magics increases")
       love.timer.sleep(0.12)
       print("by "..magicGained[hero.level].."!")
-      
       hero.level = hero.level + 1
    end
 end
@@ -285,53 +258,71 @@ end
 function win()
    hero.experience = hero.experience + enemies[enemy].level
    hero.gold = hero.gold + enemies[enemy].gold
-
-   print("\nThou")
+   print("\nThou hast")
    love.timer.sleep(0.12)
-   print("hast")
+   print("done well")
    love.timer.sleep(0.12)
-   print("done")
+   print("in defeating")
    love.timer.sleep(0.12)
-   print("well")
-   love.timer.sleep(0.12)
-   print("in")
-   love.timer.sleep(0.12)
-   print("defeating")
-   love.timer.sleep(0.12)
-   print("the")
-   love.timer.sleep(0.12)
-   print(enemies[enemy].name..".")
+   print("the "..enemies[enemy].name..".")
    love.timer.sleep(0.8)
-
-   print("\nThy")
-   love.timer.sleep(0.12)
-   print("Experience")
+   print("\nThy Experience")
    love.timer.sleep(0.12)
    print("increases")
    love.timer.sleep(0.12)
    print("by "..enemies[enemy].level..".")
    love.timer.sleep(0.12)
-   print("\nThy")
-   love.timer.sleep(0.12)
-   print("GOLD")
+   print("\nThy GOLD")
    love.timer.sleep(0.12)
    print("increases")
    love.timer.sleep(0.12)
    print("by "..enemies[enemy].gold..".")
-
    resetEnemies()
    levelUp()
    drawMode = 0
 end
 
 function lose()
-   print("\nThou")
-   love.timer.sleep(0.12)
-   print("art")
+   love.audio.stop()
+   print("\nThou art")
    love.timer.sleep(0.12)
    print("dead.")
    love.timer.sleep(2)
    love.event.quit()
+end
+
+function heroAttack()
+   enemies[enemy].health = enemies[enemy].health - hero.attacks
+   print("\nHero")
+   love.timer.sleep(0.12)
+   print("attacks!")
+   love.timer.sleep(0.8)
+   print("\nThe "..enemies[enemy].name.."'s")
+   love.timer.sleep(0.12)
+   print("Hit Points")
+   love.timer.sleep(0.12)
+   print("have been")
+   love.timer.sleep(0.12)
+   print("reduced")
+   love.timer.sleep(0.12)
+   print("by "..hero.attacks..".")
+end
+
+function enemyAttack()
+   damage = enemies[enemy].attacks - hero.defense
+   if damage <= 0 then
+      damage = 1
+   end
+   hero.health = hero.health - damage
+   print("\nThe "..enemies[enemy].name)
+   love.timer.sleep(0.12)
+   print("attacks!")
+   love.timer.sleep(0.8)
+   print("\nThy Hit")
+   love.timer.sleep(0.12)
+   print("decreased")
+   love.timer.sleep(0.12)
+   print("by "..damage..".")
 end
 
 function strikeOrder()
@@ -348,7 +339,7 @@ function strikeOrder()
             win()
          else
             print("\nCommand?")
-            keyMute = false
+            drawMode = 1
          end
       end
    else
@@ -362,56 +353,10 @@ function strikeOrder()
             lose()
          else
             print("\nCommand?")
-            keyMute = false
+            drawMode =1
          end      
       end
    end
-end
-
-function heroAttack()
-   enemies[enemy].health = enemies[enemy].health - hero.attacks
-   print("\nHero")
-   love.timer.sleep(0.12)
-   print("attacks!")
-   love.timer.sleep(0.8)
-
-   print("\nThe")
-   love.timer.sleep(0.12)
-   print(enemies[enemy].name.."'s")
-   love.timer.sleep(0.12)
-   print("Hit")
-   love.timer.sleep(0.12)
-   print("Points")
-   love.timer.sleep(0.12)
-   print("have")
-   love.timer.sleep(0.12)
-   print("been")
-   love.timer.sleep(0.12)
-   print("reduced")
-   love.timer.sleep(0.12)
-   print("by "..hero.attacks..".")
-end
-
-function enemyAttack()
-   damage = enemies[enemy].attacks - hero.defense
-   if damage <= 0 then
-      damage = 1
-   end
-   hero.health = hero.health - damage
-   print("\nThe")
-   love.timer.sleep(0.12)
-   print(enemies[enemy].name)
-   love.timer.sleep(0.12)
-   print("attacks!")
-   love.timer.sleep(0.8)
-
-   print("\nThy")
-   love.timer.sleep(0.12)
-   print("Hit")
-   love.timer.sleep(0.12)
-   print("decreased")
-   love.timer.sleep(0.12)
-   print("by "..damage..".")
 end
 
 function castHeal()
@@ -428,38 +373,27 @@ function castHeal()
          love.timer.sleep(0.12)
          print("chanted")
          love.timer.sleep(0.12)
-         print("the")
-         love.timer.sleep(0.12)
-         print("spell")
+         print("the spell")
          love.timer.sleep(0.12)
          print("of HEAL.")
       else 
-         print("\nThy")
-         love.timer.sleep(0.12)
-         print("hits")
+         print("\nThy hits")
          love.timer.sleep(0.12)
          print("cannot")
          love.timer.sleep(0.12)
-         print("be")
-         love.timer.sleep(0.12)
-         print("raised")
+         print("be raised")
       end
    else
-      print("\nThy")
+      print("\nThy MP")
       love.timer.sleep(0.12)
-      print("MP")
-      love.timer.sleep(0.12)
-      print("is")
-      love.timer.sleep(0.12)
-      print("too")
+      print("is too")
       love.timer.sleep(0.12)
       print("low.")
    end
-   keyMute = false
+   drawMode = 1
 end
 
 function battleEvents()
-   keyMute = true
    if command == 0 then
       strikeOrder()
    elseif command == 1 then
@@ -473,11 +407,9 @@ function battleEvents()
       love.timer.sleep(0.12)
       print("started")
       love.timer.sleep(0.12)
-      print("to")
+      print("to run")
       love.timer.sleep(0.12)
-      print("run")
-      love.timer.sleep(0.12)
-      print("away")
+      print("away.")
       love.timer.sleep(0.8)
       resetEnemies()
       drawMode = 0
@@ -495,17 +427,12 @@ function worldEvents()
          enemy = love.math.random(1,2)
       end
       resetSelector()
-      print("\nA")
+      print("\nA "..enemies[enemy].name)
       love.timer.sleep(0.12)
-      print(enemies[enemy].name)
-      love.timer.sleep(0.12)
-      print("draws")
-      love.timer.sleep(0.12)
-      print("near!")
+      print("draws near!")
       love.timer.sleep(0.4)
       print("\nCommand?")
       drawMode = 1
-      keyMute = false
    end
 end
 
@@ -519,25 +446,34 @@ function menuEvents()
    drawMode = 0
 end
 
-function drawMap()
+function drawWorld()
+   love.graphics.rectangle("line",68,3,442, 28)
+   love.graphics.print("LVL: "..hero.level,                       72,  5)
+   love.graphics.print("EXP: "..hero.experience,                  72, 17)
+   love.graphics.print("HP: "..hero.health.."/"..hero.healthMax, 280,  5)
+   love.graphics.print("MP: "..hero.magics.."/"..hero.magicMax,  280, 17)
+   love.graphics.print("ATK: "..hero.attacks,                     180,  5)
+   love.graphics.print("DEF: "..hero.defense,                     180, 17)
+   love.graphics.print("GOLD: "..hero.gold,                      430, 17)
    for y=1, SCREEN_SIZE do
       for x=1, SCREEN_SIZE do                                                         
          love.graphics.draw(tile[map[y+mapY][x+mapX]], (x*TILE_SIZE), (y*TILE_SIZE))
       end
    end
+   love.graphics.draw(hero.image, 8*TILE_SIZE, 8*TILE_SIZE)
 end
 
 function drawBattle()
    love.graphics.draw(battleFrame, 7*TILE_SIZE, 6.2*TILE_SIZE)
-   love.graphics.print("OPHP: "..enemies[enemy].health, 255, 5)
+   love.graphics.print("OPHP: "..enemies[enemy].health, 430, 5)
    love.graphics.draw(enemies[enemy].image, 8*TILE_SIZE, 8*TILE_SIZE)
 end
 
-function drawActions()
-   love.graphics.rectangle("line",204,408,170,24)
+function drawComm()
    love.graphics.setColor(0,0,0)
    love.graphics.rectangle("fill",204,408,170,24)
    love.graphics.setColor(255,255,255)
+   love.graphics.rectangle("line",204,408,170,24)
    for i = 1, 3 do 
       love.graphics.print(battleMenu[i], 160+60*i, 414)
    end
@@ -555,65 +491,26 @@ function drawMenu()
    love.graphics.polygon("fill", cursorBase, 416, cursorHead, 420, cursorBase, 424)
 end
 
-function drawHero()
-   love.graphics.draw(hero.image, 8*TILE_SIZE, 8*TILE_SIZE)
-end
-
-function drawStatus()
-   love.graphics.rectangle("line",TILE_SIZE,3,9*TILE_SIZE, 28)
-   love.graphics.print("LVL: "..hero.level,      40,  5)
-   love.graphics.print("EXP: "..hero.experience, 40, 17)
-   love.graphics.print("HP: "..hero.health.."/"..hero.healthMax, 150,  5)
-   love.graphics.print("MP: "..hero.magics.."/"..hero.magicMax,  150, 17)
-   love.graphics.print("ATK: "..hero.attacks, 96,  5)
-   love.graphics.print("DEF: "..hero.defense, 96, 17)
-   love.graphics.print("GOLD: "..hero.gold, 255, 17)
-end
-
 function love.draw()
-   love.graphics.setFont(defaultFont)
    love.graphics.scale(1.375)
-   if drawMode == 0 then
-      drawMap()
-      drawHero()
-   elseif drawMode == 1 then
-      drawMap()
-      drawBattle() 
-      drawActions()
-   elseif drawMode == 2 then
-      drawMap()
-      drawMenu()
-      drawHero()
-   elseif drawMode == 3 then
-      drawMap()
+   drawWorld()
+   if drawMode == 1 then
       drawBattle()
-   end
-   drawStatus()
-end
-
-function love.keypressed(key)
-   if keyMute == false then
-      if drawMode == 1 then
-         if key == ('a') then
-            cursorLeft()
-         elseif key == ('d') then
-            cursorRight()
-         elseif key == ('o') then
-            battleEvents()
-         end
-      elseif drawMode == 2 then
-         if key == ('a') then
-            cursorLeft()
-         elseif key == ('d') then
-            cursorRight()
-         elseif key == ('o') then
-            menuEvents()
-         end
-      end
+      drawComm()
+   elseif drawMode == 2 then
+      drawMenu()
+   elseif drawMode == 3 then
+      drawBattle()
    end
 end
 
 function love.update(dt)
+   bef = bef + dt
+   if relay == 1 then
+      battleEvents()
+      relay = 0
+      bef = 0
+   end
    if drawMode == 0 then
       if love.keyboard.isDown("s") then
          hero.image = s1
@@ -624,7 +521,7 @@ function love.update(dt)
             worldEvents()
          else
             mapY = mapY - 1
-            end
+         end
       elseif love.keyboard.isDown("w") then
          hero.image = n1
          mapY = mapY - 1
@@ -657,44 +554,45 @@ function love.update(dt)
          end
       elseif love.keyboard.isDown("k") then
          drawMode = 2
-         keyMute = false
+      end
+      buf = buf + dt
+      if buf >= 0.24 then
+         if hero.image == n1 then
+            hero.image = n2
+         elseif hero.image == n2 then
+            hero.image = n1   
+         elseif hero.image == s1 then
+            hero.image = s2
+         elseif hero.image == s2 then
+            hero.image = s1
+         elseif hero.image == w1 then
+            hero.image = w2
+         elseif hero.image == w2 then
+            hero.image = w1
+         elseif hero.image == e1 then
+            hero.image = e2
+         elseif hero.image == e2 then
+            hero.image = e1
+         end
+         buf = 0
+      end
+   elseif drawMode == 1 and bef > 3.5 then
+      if love.keyboard.isDown("a") then
+         cursorLeft()
+      elseif love.keyboard.isDown("d") then
+         cursorRight()
+      elseif love.keyboard.isDown("o") then
+         drawMode = 3
+         relay = 1
+      end
+   elseif drawMode == 2 then
+      if love.keyboard.isDown("a") then
+         cursorLeft()
+      elseif love.keyboard.isDown("d") then
+         cursorRight()
+      elseif love.keyboard.isDown("o") then
+         menuEvents()
       end
    end
-   buf = buf + dt
-   if buf >= 0.24 then
-      if hero.image == n1 then
-         hero.image = n2
-         buf = 0
-         return
-      elseif hero.image == n2 then
-         hero.image = n1
-         buf = 0
-         return
-      elseif hero.image == s1 then
-         hero.image = s2
-         buf = 0
-         return
-      elseif hero.image == s2 then
-         hero.image = s1
-         buf = 0
-         return
-      elseif hero.image == w1 then
-         hero.image = w2
-         buf = 0
-         return
-      elseif hero.image == w2 then
-         hero.image = w1
-         buf = 0
-         return
-      elseif hero.image == e1 then
-         hero.image = e2
-         buf = 0
-         return
-      elseif hero.image == e2 then
-         hero.image = e1
-         buf = 0
-         return
-      end
-   end
-   love.timer.sleep(0.12)  
+   love.timer.sleep(0.1)  
 end
