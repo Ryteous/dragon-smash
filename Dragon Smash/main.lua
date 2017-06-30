@@ -1,65 +1,62 @@
 map = {
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 4, 4, 4, 4, 4, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 3, 3, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
-   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 4, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4, 4, 4, 4, 4, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 3, 3, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+   { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
 }
 
--------AT-LEVEL------{ 2    3    4    5    6     7     8     9    10    11    12    13    14 }
-experienceRequired = { 5,  10,  20,  40,  70,  110,  160,  220,  290,  370,  460,  560,  600 }
-attacksGained      = { 1,   1,   2,   2,   3,    3,    4,    4,    5,    5,    6,    6,    7 }
-defenseGained      = { 1,   1,   1,   2,   2,    2,    3,    3,    3,    4,    4,    4,    5 }
-healthGained       = { 1,   1,   2,   2,   3,    3,    4,    4,    5,    5,    6,    6,    7 }
-magicGained        = { 1,   1,   1,   2,   2,    2,    3,    3,    3,    4,    4,    4,    5 }
--------AT-LEVEL------{ 2    3    4    5    6     7     8     9    10    11    12    13    14 }
+-------AT-LEVEL------{  2   3   4    5    6    7    8    9   10   11   12   13    14    15    16    17    18    19     20              21 }
+experienceRequired = {  8, 60, 80, 110, 150, 310, 380, 460, 550, 650, 760, 880, 1010, 1150, 1300, 1460, 1630, 1810,  2000, 99999999999999 }
+attacksGained      = {  1,  1,  1,   2,   2,   2,   3,   3,   3,   4,   4,   4,    5,    5,    5,    5,    5,    5,     5,             21 }
+defenseGained      = {  1,  1,  1,   1,   1,   1,   2,   2,   2,   2,   2,   3,    3,    3,    4,    4,    4,    4,     5,             21 }
+healthGained       = {  1,  1,  1,   2,   2,   2,   3,   3,   3,   4,   4,   4,    5,    6,    7,    8,    9,   10,    11,             21 }
+magicGained        = {  1,  1,  1,   2,   2,   2,   3,   3,   3,   4,   4,   4,    5,    5,    5,    5,    5,    5,     5,             21 }
+-------AT-LEVEL------{  2   3   4    5    6    7    8    9   10   11    12   13    1    15    16,   17,   18,   19,    20,             21 }
 
 love.window.setTitle("Dragon Smash")
 love.window.setMode(800, 800)
 love.window.setPosition(80, 0)
-
-TILE_SIZE = 34
-SCREEN_SIZE = 15
 
 s1 = love.graphics.newImage("heroS1.png")
 s2 = love.graphics.newImage("heroS2.png")
@@ -107,35 +104,75 @@ tile = {}
 for i = 0, 4 do
    tile[i] = love.graphics.newImage("tile"..i..".png")
 end
+
 onTile = 0
 mapX = 13
 mapY = 0
 mapW = 41
 mapH = 46
+stat = love.graphics.newImage("status.png")
 battleFrame = love.graphics.newImage("battleFrame.png")
-battleMenu = {"Attack", "Magic", "Run"}
+battleComm = love.graphics.newImage("commands.png")
+worldComm = love.graphics.newImage("commands2.png")
+cursor = love.graphics.newImage("cursor.png")
+cursorX = 218
+cursorY = 110
 command = 0
-worldMenu = {"Heal", "Talk", "End"}
 selection = 0
-cursorBase = 208
-cursorHead = 213
 drawMode = 0
 steps = 0
 encounter = 0
-buf = 0
-bef = 0
-relay = 0
-theme = love.audio.newSource("overworldTheme.wav")
+heroSwitch = 0
+menuSwitch = 0
+battleSwitch = 0
+battleRelay = 0
+theme = love.audio.newSource("dqowt.wav")
 theme:setLooping(true)
 
 function love.load()
-   hero.healthMax = love.math.random(10,12)
+   love.graphics.setFont(love.graphics.newFont(16))
+   hero.healthMax = love.math.random(18,20)
    hero.health = hero.healthMax
    hero.magicMax = love.math.random(10,12)
    hero.magics = hero.magicMax
-   hero.attacks = love.math.random(5,7)
+   hero.attacks = love.math.random(5,6)
    hero.defense = love.math.random(1,2)
    resetEnemies()
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("DRAGON SMASH")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("Welcome HERO!")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("............")
+   love.timer.sleep(0.12)
+   print("\'WASD\' for")
+   love.timer.sleep(0.12)
+   print("char./menu")
+   love.timer.sleep(0.12)
+   print("movement.")
+   love.timer.sleep(0.12)
+   print("spacebar = sprint")
+   love.timer.sleep(0.12)
+   print("\'o\' = select")
+   love.timer.sleep(0.12)
+   print("\'p\' = openMenu")
+   love.timer.sleep(0.12)
+   print("\'k\' = closeMenu")
    theme:play()
 end
 
@@ -145,39 +182,103 @@ end
 
 function resetSelector()
    command = 0
+   cursorX = 218
+   cursorY = 110
    selection = 0
-   cursorBase = 208
-   cursorHead = 213
 end
 
 function cursorLeft()
    if drawMode == 1 then
-      if command > 0 then
-         cursorBase = cursorBase - 60
-         cursorHead = cursorHead - 60
-         command = command - 1
+      if command == 1 then
+         cursorX = 218
+         command = 0
+         return
+      elseif command == 3 then
+         cursorX = 218
+         command = 2
+         return
       end
    elseif drawMode == 2 then
-      if selection > 0 then
-         cursorBase = cursorBase - 60
-         cursorHead = cursorHead - 60
-         selection = selection - 1
+      if selection == 1 then
+         cursorX = 218
+         selection = 0
+         return
+      elseif selection == 3 then
+         cursorX = 218
+         selection = 2
+         return
       end
    end
 end
 
 function cursorRight()
    if drawMode == 1 then
-      if command < 2 then
-         cursorBase = cursorBase + 60
-         cursorHead = cursorHead + 60
-         command = command + 1
+      if command == 0 then
+         cursorX = 302
+         command = 1
+         return
+      elseif command == 2 then
+         cursorX = 302
+         command = 3
+         return
       end
    elseif drawMode == 2 then
-      if selection < 2 then
-         cursorBase = cursorBase + 60
-         cursorHead = cursorHead + 60
-         selection = selection + 1
+      if selection == 0 then
+         cursorX = 302
+         selection = 1
+         return
+      elseif selection == 2 then
+         cursorX = 302
+         selection = 3
+         return
+      end
+   end
+end
+
+function cursorUp()
+   if drawMode == 1 then
+      if command == 2 then
+         cursorY = 110
+         command = 0
+         return
+      elseif command == 3 then
+         cursorY = 110
+         command = 1
+         return
+      end
+   elseif drawMode == 2 then
+      if selection == 2 then
+         cursorY = 110
+         selection = 0
+         return
+      elseif selection == 3 then
+         cursorY = 110
+         selection = 1
+         return
+      end
+   end
+end
+
+function cursorDown()
+   if drawMode == 1 then
+      if command == 0 then
+         cursorY = 132
+         command = 2
+         return
+      elseif command == 1 then
+         cursorY = 132
+         command = 3
+         return
+      end
+   elseif drawMode == 2 then
+      if selection == 0 then
+         cursorY = 132
+         selection = 2
+         return
+      elseif selection == 1 then
+         cursorY = 132
+         selection = 3
+         return
       end
    end
 end
@@ -198,22 +299,23 @@ end
 function resetEnemies()
    steps = 0
    encounter = love.math.random(12,32)
-   slime.health = love.math.random(6,8)
-   slime.attacks = love.math.random(2,4)
-   slime.level = love.math.random(2,4)
-   slime.gold = love.math.random(2,4)
-   redSlime.health = love.math.random(8,10)
-   redSlime.attacks = love.math.random(4,6)
-   redSlime.level = love.math.random(4,6)
-   redSlime.gold = love.math.random(4,6)
-   dracky.health = love.math.random(10,12)
-   dracky.attacks = love.math.random(6,8)
-   dracky.level = love.math.random(6,8)
-   dracky.gold = love.math.random(6,8)
-   greenDragon.health = love.math.random(60,80)
-   greenDragon.attacks = love.math.random(50,60)
+   slime.health = love.math.random(8,9)
+   slime.attacks = love.math.random(2,3)
+   slime.level = love.math.random(4,6)
+   slime.gold = love.math.random(4,6)
+   redSlime.health = love.math.random(10,12)
+   redSlime.attacks = love.math.random(6,8)
+   redSlime.level = love.math.random(6,8)
+   redSlime.gold = love.math.random(6,8)
+   dracky.health = love.math.random(12,14)
+   dracky.attacks = love.math.random(8,10)
+   dracky.level = love.math.random(8,10)
+   dracky.gold = love.math.random(8,10)
+   greenDragon.health = love.math.random(80,88)
+   greenDragon.attacks = love.math.random(30,40)
    greenDragon.level = love.math.random(50,60)
    greenDragon.gold = love.math.random(50,60)
+   drawMode = 0
 end
 
 function levelUp()
@@ -253,6 +355,7 @@ function levelUp()
       print("by "..magicGained[hero.level].."!")
       hero.level = hero.level + 1
    end
+   resetEnemies()
 end
 
 function win()
@@ -277,9 +380,7 @@ function win()
    print("increases")
    love.timer.sleep(0.12)
    print("by "..enemies[enemy].gold..".")
-   resetEnemies()
    levelUp()
-   drawMode = 0
 end
 
 function lose()
@@ -353,7 +454,7 @@ function strikeOrder()
             lose()
          else
             print("\nCommand?")
-            drawMode =1
+            drawMode = 1
          end      
       end
    end
@@ -412,7 +513,13 @@ function battleEvents()
       print("away.")
       love.timer.sleep(0.8)
       resetEnemies()
-      drawMode = 0
+   elseif command == 3 then
+      print("\nOf items")
+      love.timer.sleep(0.12)
+      print("thou hast")
+      love.timer.sleep(0.12)
+      print("naught.")
+      drawMode = 1
    end
    resetSelector()
 end
@@ -438,62 +545,77 @@ end
 
 function menuEvents()
    if selection == 0 then
-      castHeal()
-   elseif selection == 1 then
       talk()
+   elseif selection == 1 then
+      castHeal()
+   elseif selection == 2 then
+      print("\nMax Health")
+      love.timer.sleep(0.12)
+      print(hero.healthMax)
+      love.timer.sleep(0.12)
+      print("\nMax Magic")
+      love.timer.sleep(0.12)
+      print(hero.magicMax)
+      love.timer.sleep(0.12)
+      print("\nAttack")
+      love.timer.sleep(0.12)
+      print(hero.attacks)
+      love.timer.sleep(0.12)
+      print("\nDefense")
+      love.timer.sleep(0.12)
+      print(hero.defense)
+   elseif selection == 3 then
+      print("\nOf items")
+      love.timer.sleep(0.12)
+      print("thou hast")
+      love.timer.sleep(0.12)
+      print("naught.")
    end
    resetSelector()
    drawMode = 0
 end
 
 function drawWorld()
-   love.graphics.rectangle("line",68,3,442, 28)
-   love.graphics.print("LVL: "..hero.level,                       72,  5)
-   love.graphics.print("EXP: "..hero.experience,                  72, 17)
-   love.graphics.print("HP: "..hero.health.."/"..hero.healthMax, 280,  5)
-   love.graphics.print("MP: "..hero.magics.."/"..hero.magicMax,  280, 17)
-   love.graphics.print("ATK: "..hero.attacks,                     180,  5)
-   love.graphics.print("DEF: "..hero.defense,                     180, 17)
-   love.graphics.print("GOLD: "..hero.gold,                      430, 17)
-   for y=1, SCREEN_SIZE do
-      for x=1, SCREEN_SIZE do                                                         
-         love.graphics.draw(tile[map[y+mapY][x+mapX]], (x*TILE_SIZE), (y*TILE_SIZE))
+   for y=1, 15 do
+      for x=1, 15 do                                                         
+         love.graphics.draw(tile[map[y+mapY][x+mapX]], (x*34), (y*34))
       end
    end
-   love.graphics.draw(hero.image, 8*TILE_SIZE, 8*TILE_SIZE)
+   love.graphics.draw(hero.image, 272, 272)
+end
+
+function drawStatus()
+   love.graphics.draw(stat, 51, 136)
+   love.graphics.print(hero.level,        94, 168)
+   love.graphics.print(hero.health,       94, 202)
+   love.graphics.print(hero.magics,       94, 236)
+   love.graphics.print(hero.gold,         82, 270)
+   love.graphics.print(hero.experience,   82, 306)
 end
 
 function drawBattle()
-   love.graphics.draw(battleFrame, 7*TILE_SIZE, 6.2*TILE_SIZE)
-   love.graphics.print("OPHP: "..enemies[enemy].health, 430, 5)
-   love.graphics.draw(enemies[enemy].image, 8*TILE_SIZE, 8*TILE_SIZE)
+   love.graphics.draw(battleFrame, 170, 170)
+   love.graphics.draw(enemies[enemy].image, 272, 272)
 end
 
 function drawComm()
-   love.graphics.setColor(0,0,0)
-   love.graphics.rectangle("fill",204,408,170,24)
-   love.graphics.setColor(255,255,255)
-   love.graphics.rectangle("line",204,408,170,24)
-   for i = 1, 3 do 
-      love.graphics.print(battleMenu[i], 160+60*i, 414)
+   love.graphics.draw(battleComm, 204, 85)
+   if battleSwitch > 0.66 then
+      love.graphics.draw(cursor, cursorX, cursorY)
    end
-   love.graphics.polygon("fill", cursorBase, 416, cursorHead, 420, cursorBase, 424)
 end
 
 function drawMenu()
-   love.graphics.rectangle("line",204,408,170,24)
-   love.graphics.setColor(0,0,0)
-   love.graphics.rectangle("fill",204,408,170,24)
-   love.graphics.setColor(255,255,255)
-   for i = 1, 3 do
-      love.graphics.print(worldMenu[i], 160+60*i, 414)
+   love.graphics.draw(worldComm, 204, 85)
+   if menuSwitch > 0.33 then
+      love.graphics.draw(cursor, cursorX, cursorY)
    end
-   love.graphics.polygon("fill", cursorBase, 416, cursorHead, 420, cursorBase, 424)
 end
 
 function love.draw()
    love.graphics.scale(1.375)
    drawWorld()
+   drawStatus()
    if drawMode == 1 then
       drawBattle()
       drawComm()
@@ -505,20 +627,21 @@ function love.draw()
 end
 
 function love.update(dt)
-   bef = bef + dt
-   if relay == 1 then
+   battleSwitch = battleSwitch + dt
+   if battleRelay == 1 then
       battleEvents()
-      relay = 0
-      bef = 0
+      battleRelay = 0
+      battleSwitch = 0
    end
    if drawMode == 0 then
+      heroSwitch = heroSwitch + dt
       if love.keyboard.isDown("s") then
          hero.image = s1
          mapY = mapY + 1
          atTile()
          if onTile ~= 1 and onTile ~= 4 then
-            steps = steps + 1
             worldEvents()
+            steps = steps + 1
          else
             mapY = mapY - 1
          end
@@ -527,8 +650,8 @@ function love.update(dt)
          mapY = mapY - 1
          atTile()
          if onTile ~= 1 and onTile ~= 4 then
-            steps = steps + 1
             worldEvents()
+            steps = steps + 1
          else
             mapY = mapY + 1
          end
@@ -537,8 +660,8 @@ function love.update(dt)
          mapX = mapX - 1
          atTile()
          if onTile ~= 1 and onTile ~= 4 then
-            steps = steps + 1
             worldEvents()
+            steps = steps + 1
          else
             mapX = mapX + 1
          end
@@ -547,16 +670,15 @@ function love.update(dt)
          mapX = mapX + 1
          atTile()
          if onTile ~= 1 and onTile ~= 4 then
-            steps = steps + 1
             worldEvents()
+            steps = steps + 1
          else
             mapX = mapX - 1
          end
-      elseif love.keyboard.isDown("k") then
+      elseif love.keyboard.isDown("p") then
          drawMode = 2
       end
-      buf = buf + dt
-      if buf >= 0.24 then
+      if heroSwitch >= 0.24 then
          if hero.image == n1 then
             hero.image = n2
          elseif hero.image == n2 then
@@ -574,25 +696,40 @@ function love.update(dt)
          elseif hero.image == e2 then
             hero.image = e1
          end
-         buf = 0
+         heroSwitch = 0
       end
-   elseif drawMode == 1 and bef > 3.5 then
+   elseif drawMode == 1 and battleSwitch > 0.88 then
       if love.keyboard.isDown("a") then
          cursorLeft()
       elseif love.keyboard.isDown("d") then
          cursorRight()
+      elseif love.keyboard.isDown("w") then
+         cursorUp()
+      elseif love.keyboard.isDown("s") then
+         cursorDown()
       elseif love.keyboard.isDown("o") then
          drawMode = 3
-         relay = 1
+         battleRelay = 1
       end
    elseif drawMode == 2 then
-      if love.keyboard.isDown("a") then
-         cursorLeft()
-      elseif love.keyboard.isDown("d") then
-         cursorRight()
-      elseif love.keyboard.isDown("o") then
-         menuEvents()
+      menuSwitch = menuSwitch + dt
+      if menuSwitch > 0.44 then
+         if love.keyboard.isDown("a") then
+            cursorLeft()
+         elseif love.keyboard.isDown("d") then
+            cursorRight()
+         elseif love.keyboard.isDown("w") then
+            cursorUp()
+         elseif love.keyboard.isDown("s") then
+            cursorDown()
+         elseif love.keyboard.isDown("o") then
+            menuEvents()
+            menuSwitch = 0
+         elseif love.keyboard.isDown("k") then
+            resetSelector()
+            drawMode = 0
+         end
       end
    end
-   love.timer.sleep(0.1)  
+love.timer.sleep(0.12)
 end
